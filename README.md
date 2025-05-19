@@ -1,5 +1,4 @@
 # jito-shredstream-install
-### jito-shredstream installation guide
 
 安装shredstream之前，你需要有shredstream key才能正常接收数据，可以联系我获取：https://t.me/A0xfnzero
 
