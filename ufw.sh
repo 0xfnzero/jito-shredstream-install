@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ufw allow from 74.118.140.240
 ufw allow from 64.130.52.138
 ufw allow from 202.8.8.177
