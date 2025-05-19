@@ -16,6 +16,9 @@
   # 下载开启端口脚本
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/ufw.sh
 
+  # 赋予脚本可执行权限
+  sudo chmod +x ufw.sh
+
   # 执行脚本
   sudo ./ufw.sh
 ```
@@ -40,7 +43,7 @@
   # 重命名
   sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 
-  # 设置可执行权限
+  # 赋予文件可执行权限
   sudo chmod +x jito-shredstream-proxy
 ```
 
@@ -54,6 +57,10 @@
 
   # 下载停止脚本
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/stop.sh
+
+  # 赋予脚本可执行权限
+  sudo chmod +x shredstream.sh
+  sudo chmod +x stop.sh
 ```
 
 #### 6. 创建shredstream 服务:
