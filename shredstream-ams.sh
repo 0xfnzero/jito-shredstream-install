@@ -4,6 +4,8 @@ set -e
 
 # 配置
 PID_FILE="shredstream.pid"
+LOG_FILE="shredstream.log"
+rm -f "$LOG_FILE"
 
 # 检查并停止旧进程
 if [ -f "$PID_FILE" ]; then
@@ -26,7 +28,7 @@ fi
 # 启动新进程
 echo "Starting new jito-shredstream-proxy..."
 
-/root/shredstream-proxy/jito-shredstream-proxy shredstream \
+RUST_LOG=info /root/shredstream-proxy/jito-shredstream-proxy shredstream \
     --block-engine-url https://amsterdam.mainnet.block-engine.jito.wtf \
     --desired-regions amsterdam \
     --auth-keypair /root/shred_keypair.json \

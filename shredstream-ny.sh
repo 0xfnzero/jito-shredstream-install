@@ -3,10 +3,8 @@
 set -e
 
 # 配置
-LOG_DIR="logs"
 PID_FILE="shredstream.pid"
-mkdir -p "$LOG_DIR"
-LOG_FILE="$LOG_DIR/shredstream.log"
+LOG_FILE="shredstream.log"
 rm -f "$LOG_FILE"
 
 # 检查并停止旧进程
@@ -30,7 +28,7 @@ fi
 # 启动新进程
 echo "Starting new jito-shredstream-proxy..."
     
-/root/shredstream-proxy/jito-shredstream-proxy shredstream \
+RUST_LOG=info /root/shredstream-proxy/jito-shredstream-proxy shredstream \
     --block-engine-url https://ny.mainnet.block-engine.jito.wtf \
     --desired-regions ny \
     --auth-keypair /root/shred_keypair.json \
