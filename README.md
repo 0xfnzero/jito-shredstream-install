@@ -26,7 +26,7 @@
   cd /root
 
   #创建目录
-  mkdir -p shredstream-proxy
+  sudo mkdir -p shredstream-proxy
 ```
 
 #### 4. 下载jito-shredstream-proxy二进制文件，无需源代码编译
@@ -35,13 +35,13 @@
   cd /root/shredstream-proxy
 
   # 下载二进制文件
-  wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.5/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.5/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
   # 重命名
-  mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
+  sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 
   # 设置可执行权限
-  chmod +x jito-shredstream-proxy
+  sudo chmod +x jito-shredstream-proxy
 ```
 
 #### 5. 下载shredstream启动脚本和终止脚本：
@@ -50,16 +50,16 @@
   cd /root/shredstream-proxy
 
   # 下载启动脚本
-  wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.sh
 
   # 下载停止脚本
-  wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/stop.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/stop.sh
 ```
 
 #### 6. 创建shredstream 服务:
 ```shell
   # 下载服务脚本
-  wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.service
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.service
   # 放入到system目录
   sudo mv shredstream.service /etc/systemd/system/
 
