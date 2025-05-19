@@ -67,6 +67,7 @@
 ```shell
   # 下载服务脚本
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.service
+  
   # 放入到system目录
   sudo mv shredstream.service /etc/systemd/system/
 
