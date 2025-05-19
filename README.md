@@ -79,6 +79,7 @@
   sudo systemctl enable shredstream
 
   # 查看状态/日志
+  tail -f shredstream.log
   sudo systemctl status shredstream
   journalctl -u shredstream -f
 
