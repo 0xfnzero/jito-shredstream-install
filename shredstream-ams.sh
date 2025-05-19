@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+# 配置
+PID_FILE="shredstream.pid"
+
+# 检查并停止旧进程
+if [ -f "$PID_FILE" ]; then
+    OLD_PID=$(cat "$PID_FILE")
+    if ps -p "$OLD_PID" > /dev/null 2>&1; then
+        echo "Found running process with PID $OLD_PID. Stopping..."
+        kill "$OLD_PID"
+        sleep 1
+        if ps -p "$OLD_PID" > /dev/null 2>&1; then
+            echo "Process $OLD_PID did not exit, force killing..."
+            kill -9 "$OLD_PID"
+        fi
+        echo "Stopped previous process."
+    else
+        echo "Found stale PID file. Removing..."
+    fi
+    rm -f "$PID_FILE"
+fi
+
+# 启动新进程
+echo "Starting new jito-shredstream-proxy..."
+
+/root/shredstream-proxy/jito-shredstream-proxy shredstream \
+    --block-engine-url https://amsterdam.mainnet.block-engine.jito.wtf \
+    --desired-regions amsterdam \
+    --auth-keypair /root/shred_keypair.json \
+    --dest-ip-ports 127.0.0.1:8001 \
+    --grpc-service-port 10800
+
+NEW_PID=$!
+echo "$NEW_PID" > "$PID_FILE"
+echo "Started with PID $NEW_PID. "
