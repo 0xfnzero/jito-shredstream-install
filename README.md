@@ -1,7 +1,7 @@
 # jito-shredstream-install
 ### jito-shredstream installation guide
 
-安装shredstream之前，需要获得一个shredstream key才能正常接收数据，可以联系我：https://t.me/A0xfnzero
+安装shredstream之前，你需要有shredstream key才能正常接收数据，可以联系我获取：https://t.me/A0xfnzero
 
 #### 1. 将获得的shred_key.json上传到服务器/root目录下
 ```shell
@@ -9,7 +9,19 @@
   scp shred_key.json root@your_id:/root/shred_key.json
 ```
 
-#### 2. 在/root目录下创建shredstream-proxy目录
+#### 2. 防火墙开启shredstream所需端口
+```shell
+  # 进入/root目录
+  cd /root
+
+  # 下载开启端口脚本
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/ufw.sh
+
+  # 执行脚本
+  sudo ./ufw.sh
+```
+
+#### 3. 在/root目录下创建shredstream-proxy目录
 ```shell
   # 进入root目录
   cd /root
@@ -18,7 +30,7 @@
   mkdir -p shredstream-proxy
 ```
 
-#### 3. 下载jito-shredstream-proxy二进制文件，无需源代码编译
+#### 4. 下载jito-shredstream-proxy二进制文件，无需源代码编译
 ```shell
   # 进入目录
   cd /root/shredstream-proxy
@@ -33,7 +45,7 @@
   chmod +x jito-shredstream-proxy
 ```
 
-#### 4. 下载shredstream启动脚本和终止脚本：
+#### 5. 下载shredstream启动脚本和终止脚本：
 ```shell
   # 进入目录
   cd /root/shredstream-proxy
@@ -45,7 +57,7 @@
   wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/stop.sh
 ```
 
-#### 5. 创建shredstream 服务:
+#### 6. 创建shredstream 服务:
 ```shell
   # 下载服务脚本
   wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.service
