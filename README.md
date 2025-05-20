@@ -14,7 +14,7 @@
   cd /root
 
   # 下载开启端口脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/ufw.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
 
   # 赋予脚本可执行权限
   sudo chmod +x ufw.sh
@@ -53,10 +53,10 @@
   cd /root/shredstream-proxy
 
   # 下载启动脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/shredstream.sh
 
   # 下载停止脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/stop.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
 
   # 赋予脚本可执行权限
   sudo chmod +x shredstream.sh
@@ -66,8 +66,8 @@
 #### 6. 创建shredstream 服务:
 ```shell
   # 下载服务脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/blob/main/shredstream.service
-  
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/shredstream.service
+
   # 放入到system目录
   sudo mv shredstream.service /etc/systemd/system/
 
