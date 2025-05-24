@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+export RUST_LOG=info
 
 # 配置
 PID_FILE="shredstream.pid"
@@ -28,13 +29,14 @@ fi
 # 启动新进程
 echo "Starting new jito-shredstream-proxy..."
 
-RUST_LOG=info /root/shredstream-proxy/jito-shredstream-proxy shredstream \
-    --block-engine-url https://mainnet.block-engine.jito.wtf \
-    --desired-regions frankfurt,amsterdam,ny \
+nohup /root/shredstream-proxy/jito-shredstream-proxy shredstream \
+    --block-engine-url https://amsterdam.mainnet.block-engine.jito.wtf \
+    --desired-regions amsterdam \
     --auth-keypair /root/shred_keypair.json \
     --dest-ip-ports 127.0.0.1:8001 \
-    --grpc-service-port 10800
+    --grpc-service-port 10800 \
+    > "$LOG_FILE" 2>&1 &
 
 NEW_PID=$!
 echo "$NEW_PID" > "$PID_FILE"
-echo "Started with PID $NEW_PID. "
+echo "Started with PID $NEW_PID. Logs at $(pwd)/$LOG_FILE"

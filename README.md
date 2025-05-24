@@ -52,37 +52,29 @@
   # 进入目录
   cd /root/shredstream-proxy
 
-  # 下载启动脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/shredstream.sh
+  # 下载启动脚本,如果是amsterdam地区, 则下载startup-ams.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
 
   # 下载停止脚本
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
 
   # 赋予脚本可执行权限
-  sudo chmod +x shredstream.sh
+  sudo chmod +x startup-ny.sh
   sudo chmod +x stop.sh
 ```
 
-#### 6. 创建shredstream 服务:
+#### 6. 启动服务：
 ```shell
-  # 下载服务脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/shredstream.service
+  # 进入目录
+  cd /root/shredstream-proxy
 
-  # 放入到system目录
-  sudo mv shredstream.service /etc/systemd/system/
+  # 启动脚本
+  ./startup-ny.sh
 
-  # 重新加载 systemd 配置
-  sudo systemctl daemon-reexec
-  sudo systemctl daemon-reload
-
-  # 启动并设置开机启动
-  sudo systemctl start shredstream
-  sudo systemctl enable shredstream
-
-  # 查看状态/日志
+  # 查看日志
   tail -f shredstream.log
-  sudo systemctl status shredstream
-  journalctl -u shredstream -f
 
+  # 停止服务
+  ./stop.sh
 ```
 
