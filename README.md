@@ -78,3 +78,6 @@
   ./stop.sh
 ```
 
+#### Telegram group:
+https://t.me/fnzero_group
+
