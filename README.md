@@ -5,7 +5,7 @@
 #### 1. 将获得的shred_key.json上传到服务器/root目录下
 ```shell
   # 上传文件
-  scp shred_key.json root@your_id:/root/shred_key.json
+  scp shred_key.json root@your_id:/root/shred_keypair.json
 ```
 
 #### 2. 防火墙开启shredstream所需端口
