@@ -38,7 +38,7 @@
   cd /root/shredstream-proxy
 
   # 下载二进制文件
-  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.7/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
   # 重命名
   sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
