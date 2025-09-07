@@ -16,10 +16,10 @@
 
 安装shredstream之前，你需要有shredstream key才能正常接收数据
 
-#### 1. 将获得的shred_key.json上传到服务器/root目录下
+#### 1. 将获得的shred_keypair.json上传到服务器/root目录下
 ```shell
   # 上传文件
-  scp shred_key.json root@your_id:/root/shred_keypair.json
+  scp shred_keypair.json root@your_id:/root/shred_keypair.json
 ```
 
 #### 2. 防火墙开启shredstream所需端口

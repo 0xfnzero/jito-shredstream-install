@@ -16,10 +16,10 @@
 
 Before installing shredstream, you need to have a shredstream key to receive data properly
 
-#### 1. Upload the obtained shred_key.json to the server /root directory
+#### 1. Upload the obtained shred_keypair.json to the server /root directory
 ```shell
   # Upload file
-  scp shred_key.json root@your_id:/root/shred_keypair.json
+  scp shred_keypair.json root@your_id:/root/shred_keypair.json
 ```
 
 #### 2. Enable firewall ports required for shredstream
