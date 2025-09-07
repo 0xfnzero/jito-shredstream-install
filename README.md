@@ -1,83 +1,105 @@
 # jito-shredstream-install
 
-安装shredstream之前，你需要有shredstream key才能正常接收数据
+[中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group)
 
-#### 1. 将获得的shred_key.json上传到服务器/root目录下
+## 🚀 Quick Deployment
+
+**Want to deploy quickly?** Use our one-click deployment script:
+
+👉 **[Quick Deployment Guide](QUICK_START.md)** - One-click deployment script with 8 region options
+
+👉 **[Detailed Deployment Guide](DEPLOYMENT_GUIDE.md)** - Complete deployment documentation and troubleshooting
+
+---
+
+## 📋 Manual Deployment Steps
+
+Before installing shredstream, you need to have a shredstream key to receive data properly
+
+#### 1. Upload the obtained shred_key.json to the server /root directory
 ```shell
-  # 上传文件
+  # Upload file
   scp shred_key.json root@your_id:/root/shred_keypair.json
 ```
 
-#### 2. 防火墙开启shredstream所需端口
+#### 2. Enable firewall ports required for shredstream
 ```shell
-  # 进入/root目录
+  # Enter /root directory
   cd /root
 
-  # 下载开启端口脚本
+  # Download port opening script
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
 
-  # 赋予脚本可执行权限
+  # Grant script executable permissions
   sudo chmod +x ufw.sh
 
-  # 执行脚本
+  # Execute script
   sudo ./ufw.sh
 ```
 
-#### 3. 在/root目录下创建shredstream-proxy目录
+#### 3. Create shredstream-proxy directory under /root
 ```shell
-  # 进入root目录
+  # Enter root directory
   cd /root
 
-  #创建目录
+  # Create directory
   sudo mkdir -p shredstream-proxy
 ```
 
-#### 4. 下载jito-shredstream-proxy二进制文件，无需源代码编译
+#### 4. Download jito-shredstream-proxy binary file, no source code compilation needed
 ```shell
-  # 进入目录
+  # Enter directory
   cd /root/shredstream-proxy
 
-  # 下载二进制文件
+  # Download binary file
   sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
-  # 重命名
+  # Rename
   sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 
-  # 赋予文件可执行权限
+  # Grant file executable permissions
   sudo chmod +x jito-shredstream-proxy
 ```
 
-#### 5. 下载shredstream启动脚本和终止脚本：
+#### 5. Download shredstream startup and stop scripts:
 ```shell
-  # 进入目录
+  # Enter directory
   cd /root/shredstream-proxy
 
-  # 下载启动脚本,如果是amsterdam地区, 则下载startup-ams.sh
+  # Download startup script, if it's amsterdam region, download startup-ams.sh
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
 
-  # 下载停止脚本
+  # Download stop script
   sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
 
-  # 赋予脚本可执行权限
+  # Grant script executable permissions
   sudo chmod +x startup-ny.sh
   sudo chmod +x stop.sh
 ```
 
-#### 6. 启动服务：
+#### 6. Start service:
 ```shell
-  # 进入目录
+  # Enter directory
   cd /root/shredstream-proxy
 
-  # 启动脚本
+  # Start script
   ./startup-ny.sh
 
-  # 查看日志
+  # View logs
   tail -f shredstream.log
 
-  # 停止服务
+  # Stop service
   ./stop.sh
 ```
 
-#### Telegram group:
-https://t.me/fnzero_group
+## 📚 Related Documentation
+
+- **[Quick Deployment Guide](QUICK_START.md)** - One-click deployment script usage instructions
+- **[Detailed Deployment Guide](DEPLOYMENT_GUIDE.md)** - Complete deployment documentation and troubleshooting
+- **[Quick Deployment Script](quick-deploy.sh)** - Automated deployment script
+
+## 📞 Support
+
+- **Official Website**: https://fnzero.dev/
+- **Telegram Group**: https://t.me/fnzero_group
 
