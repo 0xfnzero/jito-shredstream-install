@@ -28,7 +28,7 @@
   cd /root
 
   # 下载开启端口脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
 
   # 赋予脚本可执行权限
   sudo chmod +x ufw.sh
@@ -52,7 +52,7 @@
   cd /root/shredstream-proxy
 
   # 下载二进制文件
-  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
   # 重命名
   sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -67,10 +67,10 @@
   cd /root/shredstream-proxy
 
   # 下载启动脚本,如果是amsterdam地区, 则下载startup-ams.sh
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
 
   # 下载停止脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 
   # 赋予脚本可执行权限
   sudo chmod +x startup-ny.sh

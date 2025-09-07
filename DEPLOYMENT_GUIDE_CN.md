@@ -37,7 +37,7 @@ scp shred_keypair.json root@your_server_ip:/root/shred_keypair.json
 cd /root
 
 # 下载开启端口脚本
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
 
 # 赋予脚本可执行权限
 chmod +x ufw.sh
@@ -73,7 +73,7 @@ cd shredstream-proxy
 
 ```bash
 # 下载二进制文件
-wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
 # 重命名
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -88,56 +88,56 @@ chmod +x jito-shredstream-proxy
 
 #### 🇺🇸 New York
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
 chmod +x startup-ny.sh
 ```
 
 #### 🇩🇪 Frankfurt
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-fra.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-fra.sh
 chmod +x startup-fra.sh
 ```
 
 #### 🇳🇱 Amsterdam
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ams.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ams.sh
 chmod +x startup-ams.sh
 ```
 
 #### 🇬🇧 London
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-london.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-london.sh
 chmod +x startup-london.sh
 ```
 
 #### 🇺🇸 Salt Lake City
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-slc.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-slc.sh
 chmod +x startup-slc.sh
 ```
 
 #### 🇸🇬 Singapore
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-singapore.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-singapore.sh
 chmod +x startup-singapore.sh
 ```
 
 #### 🇯🇵 Tokyo
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-tokyo.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-tokyo.sh
 chmod +x startup-tokyo.sh
 ```
 
 #### 🇮🇪 Dublin
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-dublin.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-dublin.sh
 chmod +x startup-dublin.sh
 ```
 
 #### 下载停止脚本
 
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 chmod +x stop.sh
 ```
 
@@ -324,14 +324,14 @@ chmod +x jito-shredstream-proxy
 - **官网**: https://fnzero.dev/
 - **Telegram群组**: https://t.me/fnzero_group
 - **GitHub仓库**: https://github.com/0xfnzero/jito-shredstream-install
-- **快速部署**: [QUICK_START.md](QUICK_START.md)
+- **快速部署**: [QUICK_START_CN.md](QUICK_START_CN.md)
 
 ## 版本信息
 
-- **Shredstream Proxy版本**: v0.2.8
-- **安装脚本版本**: v1.1
+- **Shredstream Proxy版本**: v0.2.10
+- **安装脚本版本**: v1.2
 - **最后更新**: 2024年9月
 
 ---
 
-**注意**: 本指南专注于详细的手动部署步骤。如果您希望快速部署，请使用 [快速部署指南](QUICK_START.md)。
+**注意**: 本指南专注于详细的手动部署步骤。如果您希望快速部署，请使用 [快速部署指南](QUICK_START_CN.md)。

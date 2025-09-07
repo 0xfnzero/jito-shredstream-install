@@ -37,7 +37,7 @@ scp shred_keypair.json root@your_server_ip:/root/shred_keypair.json
 cd /root
 
 # Download port opening script
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
 
 # Grant script executable permissions
 chmod +x ufw.sh
@@ -73,7 +73,7 @@ cd shredstream-proxy
 
 ```bash
 # Download binary file
-wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
 # Rename
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -88,56 +88,56 @@ Download the corresponding startup script based on your selected region:
 
 #### 🇺🇸 New York
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
 chmod +x startup-ny.sh
 ```
 
 #### 🇩🇪 Frankfurt
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-fra.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-fra.sh
 chmod +x startup-fra.sh
 ```
 
 #### 🇳🇱 Amsterdam
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ams.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ams.sh
 chmod +x startup-ams.sh
 ```
 
 #### 🇬🇧 London
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-london.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-london.sh
 chmod +x startup-london.sh
 ```
 
 #### 🇺🇸 Salt Lake City
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-slc.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-slc.sh
 chmod +x startup-slc.sh
 ```
 
 #### 🇸🇬 Singapore
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-singapore.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-singapore.sh
 chmod +x startup-singapore.sh
 ```
 
 #### 🇯🇵 Tokyo
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-tokyo.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-tokyo.sh
 chmod +x startup-tokyo.sh
 ```
 
 #### 🇮🇪 Dublin
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-dublin.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-dublin.sh
 chmod +x startup-dublin.sh
 ```
 
 #### Download Stop Script
 
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
+wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 chmod +x stop.sh
 ```
 
@@ -324,15 +324,15 @@ The firewall script will automatically configure the following IP whitelist:
 - **Official Website**: https://fnzero.dev/
 - **Telegram Group**: https://t.me/fnzero_group
 - **GitHub Repository**: https://github.com/0xfnzero/jito-shredstream-install
-- **Quick Deployment**: [QUICK_START_EN.md](QUICK_START_EN.md)
+- **Quick Deployment**: [QUICK_START.md](QUICK_START.md)
 
 ## Version Information
 
-- **Shredstream Proxy Version**: v0.2.8
-- **Installation Script Version**: v1.1
+- **Shredstream Proxy Version**: v0.2.10
+- **Installation Script Version**: v1.2
 - **Last Updated**: September 2024
 
 ---
 
-**Note**: This guide focuses on detailed manual deployment steps. If you want to deploy quickly, please use [Quick Deployment Guide](QUICK_START_EN.md).
+**Note**: This guide focuses on detailed manual deployment steps. If you want to deploy quickly, please use [Quick Deployment Guide](QUICK_START.md).
 

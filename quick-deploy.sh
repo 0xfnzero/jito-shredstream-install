@@ -103,7 +103,7 @@ echo -e "${GREEN}✓ 防火墙配置完成${NC}"
 
 # 下载jito-shredstream-proxy二进制文件
 echo -e "${YELLOW}下载jito-shredstream-proxy二进制文件...${NC}"
-wget -q https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget -q https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 chmod +x jito-shredstream-proxy
 echo -e "${GREEN}✓ 二进制文件下载完成${NC}"

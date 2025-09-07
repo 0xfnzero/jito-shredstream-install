@@ -28,7 +28,7 @@ Before installing shredstream, you need to have a shredstream key to receive dat
   cd /root
 
   # Download port opening script
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
 
   # Grant script executable permissions
   sudo chmod +x ufw.sh
@@ -52,7 +52,7 @@ Before installing shredstream, you need to have a shredstream key to receive dat
   cd /root/shredstream-proxy
 
   # Download binary file
-  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.8/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
   # Rename
   sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -67,10 +67,10 @@ Before installing shredstream, you need to have a shredstream key to receive dat
   cd /root/shredstream-proxy
 
   # Download startup script, if it's amsterdam region, download startup-ams.sh
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/startup-ny.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
 
   # Download stop script
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
+  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 
   # Grant script executable permissions
   sudo chmod +x startup-ny.sh
