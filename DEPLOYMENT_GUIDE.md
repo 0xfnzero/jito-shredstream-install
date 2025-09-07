@@ -6,7 +6,7 @@
 
 This guide provides detailed manual deployment steps for Jito Shredstream, suitable for users who want to understand every deployment detail.
 
-> **Want to deploy quickly?** Please check [Quick Deployment Guide](QUICK_START_EN.md)
+> **Want to deploy quickly?** Please check [Quick Deployment Guide](QUICK_START.md)
 
 ## Prerequisites
 
