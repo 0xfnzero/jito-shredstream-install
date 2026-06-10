@@ -12,42 +12,42 @@ This guide provides detailed manual deployment steps for Jito Shredstream, suita
 
 Before starting deployment, please ensure you have:
 
-1. ✅ Obtained `shred_keypair.json` file
-2. ✅ Server root privileges
-3. ✅ Server running Ubuntu system
-4. ✅ Normal network connection
+1. ✅ Server root privileges
+2. ✅ Server running Ubuntu system
+3. ✅ Normal network connection
+4. ✅ This repository includes `shred_keypair.json`
 
 ## Detailed Deployment Steps
 
-### 1. Upload Key File
+### 1. Clone Repository
 
-Upload your `shred_keypair.json` file to the server's `/root` directory:
+Clone the full repository to the server. The deployment script uses the `shred_keypair.json` included in this repository. To use your own key, replace `./shred_keypair.json` before running the deployment script.
 
 ```bash
-# Upload shred_keypair.json to server /root directory
-scp shred_keypair.json root@your_server_ip:/root/shred_keypair.json
+# Switch to root user
+sudo su -
+
+# Clone repository to /root
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
 ```
 
 ### 2. Configure Firewall
 
-#### 2.1 Download Firewall Configuration Script
+#### 2.1 Copy Firewall Configuration Script
 
 ```bash
-# Enter /root directory
-cd /root
-
-# Download port opening script
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
-
-# Grant script executable permissions
-chmod +x ufw.sh
+# Copy the firewall script from the repository
+cp /root/jito-shredstream-install/ufw.sh /root/ufw.sh
+chmod +x /root/ufw.sh
 ```
 
 #### 2.2 Execute Firewall Configuration
 
 ```bash
 # Execute script
-./ufw.sh
+/root/ufw.sh
 ```
 
 The firewall script will automatically configure the following rules:
@@ -82,64 +82,18 @@ mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 chmod +x jito-shredstream-proxy
 ```
 
-### 5. Download Startup and Stop Scripts
+### 5. Copy Startup and Stop Scripts
 
-Download the corresponding startup script based on your selected region:
+Copy the startup script for your selected region from the cloned repository:
 
-#### 🇺🇸 New York
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
+cp /root/jito-shredstream-install/startup-ny.sh ./startup-ny.sh
+cp /root/jito-shredstream-install/stop.sh ./stop.sh
 chmod +x startup-ny.sh
-```
-
-#### 🇩🇪 Frankfurt
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-fra.sh
-chmod +x startup-fra.sh
-```
-
-#### 🇳🇱 Amsterdam
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ams.sh
-chmod +x startup-ams.sh
-```
-
-#### 🇬🇧 London
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-london.sh
-chmod +x startup-london.sh
-```
-
-#### 🇺🇸 Salt Lake City
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-slc.sh
-chmod +x startup-slc.sh
-```
-
-#### 🇸🇬 Singapore
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-singapore.sh
-chmod +x startup-singapore.sh
-```
-
-#### 🇯🇵 Tokyo
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-tokyo.sh
-chmod +x startup-tokyo.sh
-```
-
-#### 🇮🇪 Dublin
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-dublin.sh
-chmod +x startup-dublin.sh
-```
-
-#### Download Stop Script
-
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 chmod +x stop.sh
 ```
+
+Replace `startup-ny.sh` with the startup script for your selected region, such as `startup-fra.sh`, `startup-ams.sh`, or `startup-singapore.sh`.
 
 ### 6. Start Service
 
@@ -211,8 +165,9 @@ cat /root/shredstream-proxy/shredstream.pid
 
 2. **Key File Not Found**
    ```bash
-   # Check if key file exists
+   # Check if the key file exists in either supported location
    ls -la /root/shred_keypair.json
+   ls -la /root/jito-shredstream-install/shred_keypair.json
    ```
 
 3. **Port Occupied**

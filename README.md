@@ -15,7 +15,8 @@ cd /root
 git clone https://github.com/0xfnzero/jito-shredstream-install.git
 cd jito-shredstream-install
 
-# Upload your key file to /root/shred_keypair.json before running this step
+# The script uses the shred_keypair.json included in this repository.
+# To use your own key, replace ./shred_keypair.json before running.
 bash quick-deploy.sh
 
 # Start the selected region service after deployment
@@ -32,15 +33,9 @@ tail -f shredstream.log
 
 ## 📋 Manual Deployment Steps
 
-Before installing shredstream, you need to have a shredstream key to receive data properly
+Before installing shredstream, you need a valid `shred_keypair.json` to receive data properly. This repository includes one by default. If you want to use your own key, replace `shred_keypair.json` in the repository or place it at `/root/shred_keypair.json`.
 
-#### 1. Upload the obtained shred_keypair.json to the server /root directory
-```shell
-  # Upload file
-  scp shred_keypair.json root@your_id:/root/shred_keypair.json
-```
-
-#### 2. Clone this repository to the server
+#### 1. Clone this repository to the server
 ```shell
   # Enter root directory
   cd /root
@@ -50,14 +45,14 @@ Before installing shredstream, you need to have a shredstream key to receive dat
   cd jito-shredstream-install
 ```
 
-#### 3. Run the one-click deployment script
+#### 2. Run the one-click deployment script
 ```shell
   # The script configures firewall rules, downloads the proxy binary,
-  # and copies startup/stop scripts from this repository.
+  # copies the key file, and copies startup/stop scripts from this repository.
   sudo bash quick-deploy.sh
 ```
 
-#### 4. Start service
+#### 3. Start service
 ```shell
   # Enter directory
   cd /root/shredstream-proxy

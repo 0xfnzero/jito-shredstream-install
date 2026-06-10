@@ -12,42 +12,42 @@
 
 在开始部署之前，请确保您已经：
 
-1. ✅ 获得了 `shred_keypair.json` 文件
-2. ✅ 拥有服务器的 root 权限
-3. ✅ 服务器运行 Ubuntu 系统
-4. ✅ 网络连接正常
+1. ✅ 拥有服务器的 root 权限
+2. ✅ 服务器运行 Ubuntu 系统
+3. ✅ 网络连接正常
+4. ✅ 本仓库已包含 `shred_keypair.json`
 
 ## 详细部署步骤
 
-### 1. 上传密钥文件
+### 1. 克隆仓库
 
-将您的 `shred_keypair.json` 文件上传到服务器的 `/root` 目录下：
+将完整仓库克隆到服务器。部署脚本会使用仓库内置的 `shred_keypair.json`。如需使用自己的 key，请在执行部署脚本前替换 `./shred_keypair.json`。
 
 ```bash
-# 将shred_keypair.json上传到服务器/root目录下
-scp shred_keypair.json root@your_server_ip:/root/shred_keypair.json
+# 切换到 root 用户
+sudo su -
+
+# 克隆仓库到 /root 目录
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
 ```
 
 ### 2. 配置防火墙
 
-#### 2.1 下载防火墙配置脚本
+#### 2.1 复制防火墙配置脚本
 
 ```bash
-# 进入/root目录
-cd /root
-
-# 下载开启端口脚本
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
-
-# 赋予脚本可执行权限
-chmod +x ufw.sh
+# 从仓库复制防火墙脚本
+cp /root/jito-shredstream-install/ufw.sh /root/ufw.sh
+chmod +x /root/ufw.sh
 ```
 
 #### 2.2 执行防火墙配置
 
 ```bash
 # 执行脚本
-./ufw.sh
+/root/ufw.sh
 ```
 
 防火墙脚本会自动配置以下规则：
@@ -82,64 +82,18 @@ mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 chmod +x jito-shredstream-proxy
 ```
 
-### 5. 下载启动和停止脚本
+### 5. 复制启动和停止脚本
 
-根据您选择的区域，下载对应的启动脚本：
+从已克隆的仓库复制所选区域的启动脚本：
 
-#### 🇺🇸 New York
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
+cp /root/jito-shredstream-install/startup-ny.sh ./startup-ny.sh
+cp /root/jito-shredstream-install/stop.sh ./stop.sh
 chmod +x startup-ny.sh
-```
-
-#### 🇩🇪 Frankfurt
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-fra.sh
-chmod +x startup-fra.sh
-```
-
-#### 🇳🇱 Amsterdam
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ams.sh
-chmod +x startup-ams.sh
-```
-
-#### 🇬🇧 London
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-london.sh
-chmod +x startup-london.sh
-```
-
-#### 🇺🇸 Salt Lake City
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-slc.sh
-chmod +x startup-slc.sh
-```
-
-#### 🇸🇬 Singapore
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-singapore.sh
-chmod +x startup-singapore.sh
-```
-
-#### 🇯🇵 Tokyo
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-tokyo.sh
-chmod +x startup-tokyo.sh
-```
-
-#### 🇮🇪 Dublin
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-dublin.sh
-chmod +x startup-dublin.sh
-```
-
-#### 下载停止脚本
-
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
 chmod +x stop.sh
 ```
+
+请将 `startup-ny.sh` 替换为你选择的区域脚本，例如 `startup-fra.sh`、`startup-ams.sh` 或 `startup-singapore.sh`。
 
 ### 6. 启动服务
 
@@ -211,8 +165,9 @@ cat /root/shredstream-proxy/shredstream.pid
 
 2. **密钥文件不存在**
    ```bash
-   # 检查密钥文件是否存在
+   # 检查两个支持位置是否存在密钥文件
    ls -la /root/shred_keypair.json
+   ls -la /root/jito-shredstream-install/shred_keypair.json
    ```
 
 3. **端口被占用**

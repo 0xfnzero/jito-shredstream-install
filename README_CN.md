@@ -15,7 +15,8 @@ cd /root
 git clone https://github.com/0xfnzero/jito-shredstream-install.git
 cd jito-shredstream-install
 
-# 执行前请先把密钥文件上传到 /root/shred_keypair.json
+# 脚本会使用仓库内置的 shred_keypair.json
+# 如需使用自己的 key，请先替换 ./shred_keypair.json
 bash quick-deploy.sh
 
 # 部署完成后启动所选区域服务
@@ -32,15 +33,9 @@ tail -f shredstream.log
 
 ## 📋 手动部署步骤
 
-安装shredstream之前，你需要有shredstream key才能正常接收数据
+安装 shredstream 之前需要有效的 `shred_keypair.json` 才能正常接收数据。本仓库默认包含该文件。如果你要使用自己的 key，请替换仓库内的 `shred_keypair.json`，或提前放到 `/root/shred_keypair.json`。
 
-#### 1. 将获得的shred_keypair.json上传到服务器/root目录下
-```shell
-  # 上传文件
-  scp shred_keypair.json root@your_id:/root/shred_keypair.json
-```
-
-#### 2. 将本仓库克隆到服务器
+#### 1. 将本仓库克隆到服务器
 ```shell
   # 进入/root目录
   cd /root
@@ -50,14 +45,14 @@ tail -f shredstream.log
   cd jito-shredstream-install
 ```
 
-#### 3. 执行一键部署脚本
+#### 2. 执行一键部署脚本
 ```shell
   # 脚本会自动配置防火墙、下载 proxy 二进制文件，
-  # 并从当前仓库复制启动/停止脚本。
+  # 复制 key 文件，并从当前仓库复制启动/停止脚本。
   sudo bash quick-deploy.sh
 ```
 
-#### 4. 启动服务
+#### 3. 启动服务
 ```shell
   # 进入目录
   cd /root/shredstream-proxy
@@ -82,4 +77,3 @@ tail -f shredstream.log
 
 - **官网**: https://fnzero.dev/
 - **Telegram群组**: https://t.me/fnzero_group
-

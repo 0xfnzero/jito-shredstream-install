@@ -8,19 +8,13 @@
 
 ### 📋 前提条件
 
-1. ✅ 已获得 `shred_keypair.json` 文件
-2. ✅ 服务器 root 权限
-3. ✅ Linux 系统
+1. ✅ 服务器 root 权限
+2. ✅ Linux 系统
+3. ✅ 本仓库已包含 `shred_keypair.json` 文件
 
 ### 🎯 快速开始
 
-#### 1. 上传密钥文件
-在本地电脑执行：
-```bash
-scp shred_keypair.json root@your_server:/root/shred_keypair.json
-```
-
-#### 2. 克隆仓库
+#### 1. 克隆仓库
 在服务器执行：
 ```bash
 sudo su -
@@ -29,12 +23,14 @@ git clone https://github.com/0xfnzero/jito-shredstream-install.git
 cd jito-shredstream-install
 ```
 
-#### 3. 运行部署脚本
+如需使用自己的 key，请在执行部署脚本前替换 `./shred_keypair.json`。
+
+#### 2. 运行部署脚本
 ```bash
 bash quick-deploy.sh
 ```
 
-#### 4. 选择区域
+#### 3. 选择区域
 ```
 请选择部署区域:
 
@@ -50,7 +46,7 @@ bash quick-deploy.sh
 请输入区域编号 (1-8): 
 ```
 
-#### 5. 启动服务
+#### 4. 启动服务
 ```bash
 cd /root/shredstream-proxy
 ./startup-[region].sh    # 根据选择的区域
@@ -61,6 +57,7 @@ tail -f shredstream.log  # 查看日志
 
 脚本会自动完成以下操作：
 - ✅ 检查密钥文件
+- ✅ 复制密钥文件到 `/root/shred_keypair.json`
 - ✅ 创建必要目录
 - ✅ 配置防火墙规则
 - ✅ 下载二进制文件

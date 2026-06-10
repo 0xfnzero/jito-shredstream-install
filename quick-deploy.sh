@@ -72,13 +72,21 @@ echo ""
 echo -e "${GREEN}已选择区域: ${region_name}${NC}"
 echo ""
 
-# 检查shred_keypair.json文件是否存在
+# 检查并准备shred_keypair.json文件
 echo -e "${YELLOW}检查shred_keypair.json文件...${NC}"
 if [ ! -f "/root/shred_keypair.json" ]; then
-    echo -e "${RED}错误: 未找到 /root/shred_keypair.json 文件${NC}"
-    echo -e "${YELLOW}请先将 shred_keypair.json 上传到服务器的 /root 目录下${NC}"
-    echo "使用方法: scp shred_keypair.json root@your_server:/root/shred_keypair.json"
-    exit 1
+    if [ -f "${SCRIPT_DIR}/shred_keypair.json" ]; then
+        echo -e "${YELLOW}未找到 /root/shred_keypair.json，使用仓库内的 shred_keypair.json${NC}"
+        cp "${SCRIPT_DIR}/shred_keypair.json" /root/shred_keypair.json
+        chmod 600 /root/shred_keypair.json
+        echo -e "${GREEN}✓ 已复制 shred_keypair.json 到 /root/shred_keypair.json${NC}"
+    else
+        echo -e "${RED}错误: 未找到 /root/shred_keypair.json 或 ${SCRIPT_DIR}/shred_keypair.json 文件${NC}"
+        echo -e "${YELLOW}请将 shred_keypair.json 放到仓库目录或 /root 目录下后重试${NC}"
+        exit 1
+    fi
+else
+    chmod 600 /root/shred_keypair.json
 fi
 echo -e "${GREEN}✓ shred_keypair.json 文件存在${NC}"
 

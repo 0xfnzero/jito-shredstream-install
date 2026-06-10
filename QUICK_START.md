@@ -8,19 +8,13 @@ Use our quick deployment script to complete Jito Shredstream deployment in just 
 
 ### 📋 Prerequisites
 
-1. ✅ Have obtained `shred_keypair.json` file
-2. ✅ Server root privileges
-3. ✅ Linux system
+1. ✅ Server root privileges
+2. ✅ Linux system
+3. ✅ `shred_keypair.json` is included in this repository
 
 ### 🎯 Quick Start
 
-#### 1. Upload Key File
-Run this command from your local machine:
-```bash
-scp shred_keypair.json root@your_server:/root/shred_keypair.json
-```
-
-#### 2. Clone Repository
+#### 1. Clone Repository
 Run these commands on your server:
 ```bash
 sudo su -
@@ -29,12 +23,14 @@ git clone https://github.com/0xfnzero/jito-shredstream-install.git
 cd jito-shredstream-install
 ```
 
-#### 3. Run Deployment Script
+To use your own key, replace `./shred_keypair.json` before running the deployment script.
+
+#### 2. Run Deployment Script
 ```bash
 bash quick-deploy.sh
 ```
 
-#### 4. Select Region
+#### 3. Select Region
 ```
 Please select deployment region:
 
@@ -50,7 +46,7 @@ Please select deployment region:
 Please enter region number (1-8): 
 ```
 
-#### 5. Start Service
+#### 4. Start Service
 ```bash
 cd /root/shredstream-proxy
 ./startup-[region].sh    # Based on selected region
@@ -61,6 +57,7 @@ tail -f shredstream.log  # View logs
 
 The script will automatically complete the following operations:
 - ✅ Check key file
+- ✅ Copy key file to `/root/shred_keypair.json`
 - ✅ Create necessary directories
 - ✅ Configure firewall rules
 - ✅ Download binary files
