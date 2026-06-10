@@ -8,26 +8,30 @@
 
 ### 📋 前提条件
 
-1. ✅ 已获得 `shred_key.json` 文件
+1. ✅ 已获得 `shred_keypair.json` 文件
 2. ✅ 服务器 root 权限
 3. ✅ Linux 系统
 
 ### 🎯 快速开始
 
-#### 1. 下载部署脚本
+#### 1. 上传密钥文件
+在本地电脑执行：
 ```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/raw/main/quick-deploy.sh
-chmod +x quick-deploy.sh
+scp shred_keypair.json root@your_server:/root/shred_keypair.json
 ```
 
-#### 2. 上传密钥文件
+#### 2. 克隆仓库
+在服务器执行：
 ```bash
-scp shred_key.json root@your_server:/root/shred_keypair.json
+sudo su -
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
 ```
 
 #### 3. 运行部署脚本
 ```bash
-sudo ./quick-deploy.sh
+bash quick-deploy.sh
 ```
 
 #### 4. 选择区域
@@ -60,7 +64,7 @@ tail -f shredstream.log  # 查看日志
 - ✅ 创建必要目录
 - ✅ 配置防火墙规则
 - ✅ 下载二进制文件
-- ✅ 下载区域启动脚本
+- ✅ 从当前仓库复制区域启动脚本
 - ✅ 设置文件权限
 
 ### 📞 支持
@@ -68,4 +72,3 @@ tail -f shredstream.log  # 查看日志
 - **官网**: https://fnzero.dev/
 - **Telegram**: https://t.me/fnzero_group
 - **详细文档**: [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
-

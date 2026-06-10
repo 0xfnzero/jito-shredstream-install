@@ -73,7 +73,7 @@ cd shredstream-proxy
 
 ```bash
 # 下载二进制文件
-wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.13/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
 # 重命名
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -328,8 +328,8 @@ chmod +x jito-shredstream-proxy
 
 ## 版本信息
 
-- **Shredstream Proxy版本**: v0.2.10
-- **安装脚本版本**: v1.2
+- **Shredstream Proxy版本**: v0.2.13
+- **安装脚本版本**: v1.3
 - **最后更新**: 2024年9月
 
 ---

@@ -73,7 +73,7 @@ cd shredstream-proxy
 
 ```bash
 # Download binary file
-wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.13/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
 # Rename
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -328,11 +328,10 @@ The firewall script will automatically configure the following IP whitelist:
 
 ## Version Information
 
-- **Shredstream Proxy Version**: v0.2.10
-- **Installation Script Version**: v1.2
+- **Shredstream Proxy Version**: v0.2.13
+- **Installation Script Version**: v1.3
 - **Last Updated**: September 2024
 
 ---
 
 **Note**: This guide focuses on detailed manual deployment steps. If you want to deploy quickly, please use [Quick Deployment Guide](QUICK_START.md).
-

@@ -4,9 +4,27 @@
 
 ## 🚀 快速部署
 
-**想要快速部署？** 使用我们的一键部署脚本：
+**推荐安装方式：先在服务器下载完整仓库代码，再执行仓库里的部署脚本。**
 
-👉 **[快速部署指南](QUICK_START_CN.md)** - 一键部署脚本，支持8个区域选择
+```bash
+# 切换到 root 用户
+sudo su -
+
+# 克隆仓库到 /root 目录
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
+
+# 执行前请先把密钥文件上传到 /root/shred_keypair.json
+bash quick-deploy.sh
+
+# 部署完成后启动所选区域服务
+cd /root/shredstream-proxy
+./startup-[region].sh
+tail -f shredstream.log
+```
+
+👉 **[快速部署指南](QUICK_START_CN.md)** - 基于完整仓库的一键部署脚本，支持8个区域选择
 
 👉 **[详细部署指南](DEPLOYMENT_GUIDE_CN.md)** - 完整的部署文档和故障排除
 
@@ -22,67 +40,29 @@
   scp shred_keypair.json root@your_id:/root/shred_keypair.json
 ```
 
-#### 2. 防火墙开启shredstream所需端口
+#### 2. 将本仓库克隆到服务器
 ```shell
   # 进入/root目录
   cd /root
 
-  # 下载开启端口脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
-
-  # 赋予脚本可执行权限
-  sudo chmod +x ufw.sh
-
-  # 执行脚本
-  sudo ./ufw.sh
+  # 克隆仓库
+  git clone https://github.com/0xfnzero/jito-shredstream-install.git
+  cd jito-shredstream-install
 ```
 
-#### 3. 在/root目录下创建shredstream-proxy目录
+#### 3. 执行一键部署脚本
 ```shell
-  # 进入root目录
-  cd /root
-
-  #创建目录
-  sudo mkdir -p shredstream-proxy
+  # 脚本会自动配置防火墙、下载 proxy 二进制文件，
+  # 并从当前仓库复制启动/停止脚本。
+  sudo bash quick-deploy.sh
 ```
 
-#### 4. 下载jito-shredstream-proxy二进制文件，无需源代码编译
+#### 4. 启动服务
 ```shell
   # 进入目录
   cd /root/shredstream-proxy
 
-  # 下载二进制文件
-  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
-
-  # 重命名
-  sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
-
-  # 赋予文件可执行权限
-  sudo chmod +x jito-shredstream-proxy
-```
-
-#### 5. 下载shredstream启动脚本和终止脚本：
-```shell
-  # 进入目录
-  cd /root/shredstream-proxy
-
-  # 下载启动脚本,如果是amsterdam地区, 则下载startup-ams.sh
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
-
-  # 下载停止脚本
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
-
-  # 赋予脚本可执行权限
-  sudo chmod +x startup-ny.sh
-  sudo chmod +x stop.sh
-```
-
-#### 6. 启动服务：
-```shell
-  # 进入目录
-  cd /root/shredstream-proxy
-
-  # 启动脚本
+  # 启动脚本，请将 startup-ny.sh 替换为你选择的区域脚本
   ./startup-ny.sh
 
   # 查看日志
@@ -102,5 +82,4 @@
 
 - **官网**: https://fnzero.dev/
 - **Telegram群组**: https://t.me/fnzero_group
-
 

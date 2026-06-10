@@ -4,9 +4,27 @@
 
 ## 🚀 Quick Deployment
 
-**Want to deploy quickly?** Use our one-click deployment script:
+**Recommended installation: clone the full repository on the server, then run the deployment script.**
 
-👉 **[Quick Deployment Guide](QUICK_START.md)** - One-click deployment script with 8 region options
+```bash
+# Switch to root user
+sudo su -
+
+# Clone repository to /root
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
+
+# Upload your key file to /root/shred_keypair.json before running this step
+bash quick-deploy.sh
+
+# Start the selected region service after deployment
+cd /root/shredstream-proxy
+./startup-[region].sh
+tail -f shredstream.log
+```
+
+👉 **[Quick Deployment Guide](QUICK_START.md)** - Repository-based deployment script with 8 region options
 
 👉 **[Detailed Deployment Guide](DEPLOYMENT_GUIDE.md)** - Complete deployment documentation and troubleshooting
 
@@ -22,67 +40,29 @@ Before installing shredstream, you need to have a shredstream key to receive dat
   scp shred_keypair.json root@your_id:/root/shred_keypair.json
 ```
 
-#### 2. Enable firewall ports required for shredstream
-```shell
-  # Enter /root directory
-  cd /root
-
-  # Download port opening script
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/ufw.sh
-
-  # Grant script executable permissions
-  sudo chmod +x ufw.sh
-
-  # Execute script
-  sudo ./ufw.sh
-```
-
-#### 3. Create shredstream-proxy directory under /root
+#### 2. Clone this repository to the server
 ```shell
   # Enter root directory
   cd /root
 
-  # Create directory
-  sudo mkdir -p shredstream-proxy
+  # Clone repository
+  git clone https://github.com/0xfnzero/jito-shredstream-install.git
+  cd jito-shredstream-install
 ```
 
-#### 4. Download jito-shredstream-proxy binary file, no source code compilation needed
+#### 3. Run the one-click deployment script
+```shell
+  # The script configures firewall rules, downloads the proxy binary,
+  # and copies startup/stop scripts from this repository.
+  sudo bash quick-deploy.sh
+```
+
+#### 4. Start service
 ```shell
   # Enter directory
   cd /root/shredstream-proxy
 
-  # Download binary file
-  sudo wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
-
-  # Rename
-  sudo mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
-
-  # Grant file executable permissions
-  sudo chmod +x jito-shredstream-proxy
-```
-
-#### 5. Download shredstream startup and stop scripts:
-```shell
-  # Enter directory
-  cd /root/shredstream-proxy
-
-  # Download startup script, if it's amsterdam region, download startup-ams.sh
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/startup-ny.sh
-
-  # Download stop script
-  sudo wget https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.2/stop.sh
-
-  # Grant script executable permissions
-  sudo chmod +x startup-ny.sh
-  sudo chmod +x stop.sh
-```
-
-#### 6. Start service:
-```shell
-  # Enter directory
-  cd /root/shredstream-proxy
-
-  # Start script
+  # Start script, replace startup-ny.sh with your selected region script
   ./startup-ny.sh
 
   # View logs
@@ -102,4 +82,3 @@ Before installing shredstream, you need to have a shredstream key to receive dat
 
 - **Official Website**: https://fnzero.dev/
 - **Telegram Group**: https://t.me/fnzero_group
-

@@ -14,20 +14,24 @@ Use our quick deployment script to complete Jito Shredstream deployment in just 
 
 ### 🎯 Quick Start
 
-#### 1. Download Deployment Script
-```bash
-wget https://github.com/0xfnzero/jito-shredstream-install/raw/main/quick-deploy.sh
-chmod +x quick-deploy.sh
-```
-
-#### 2. Upload Key File
+#### 1. Upload Key File
+Run this command from your local machine:
 ```bash
 scp shred_keypair.json root@your_server:/root/shred_keypair.json
 ```
 
+#### 2. Clone Repository
+Run these commands on your server:
+```bash
+sudo su -
+cd /root
+git clone https://github.com/0xfnzero/jito-shredstream-install.git
+cd jito-shredstream-install
+```
+
 #### 3. Run Deployment Script
 ```bash
-sudo ./quick-deploy.sh
+bash quick-deploy.sh
 ```
 
 #### 4. Select Region
@@ -60,12 +64,11 @@ The script will automatically complete the following operations:
 - ✅ Create necessary directories
 - ✅ Configure firewall rules
 - ✅ Download binary files
-- ✅ Download regional startup scripts
+- ✅ Copy regional startup scripts from this repository
 - ✅ Set file permissions
 
 ### 📞 Support
 
 - **Official Website**: https://fnzero.dev/
 - **Telegram**: https://t.me/fnzero_group
-- **Detailed Documentation**: [DEPLOYMENT_GUIDE_EN.md](./DEPLOYMENT_GUIDE_EN.md)
-
+- **Detailed Documentation**: [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)

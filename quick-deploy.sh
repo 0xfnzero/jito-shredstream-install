@@ -9,6 +9,9 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+SHREDSTREAM_PROXY_VERSION="${SHREDSTREAM_PROXY_VERSION:-v0.2.13}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # 区域配置
 declare -A REGIONS=(
     ["1"]="ny:New York:startup-ny.sh"
@@ -73,11 +76,22 @@ echo ""
 echo -e "${YELLOW}检查shred_keypair.json文件...${NC}"
 if [ ! -f "/root/shred_keypair.json" ]; then
     echo -e "${RED}错误: 未找到 /root/shred_keypair.json 文件${NC}"
-    echo -e "${YELLOW}请先将shred_key.json上传到服务器的/root目录下${NC}"
-    echo "使用方法: scp shred_key.json root@your_server:/root/shred_keypair.json"
+    echo -e "${YELLOW}请先将 shred_keypair.json 上传到服务器的 /root 目录下${NC}"
+    echo "使用方法: scp shred_keypair.json root@your_server:/root/shred_keypair.json"
     exit 1
 fi
 echo -e "${GREEN}✓ shred_keypair.json 文件存在${NC}"
+
+# 检查本地安装脚本是否存在
+echo -e "${YELLOW}检查本地安装脚本...${NC}"
+for required_file in ufw.sh stop.sh "${script_name}"; do
+    if [ ! -f "${SCRIPT_DIR}/${required_file}" ]; then
+        echo -e "${RED}错误: 未找到 ${SCRIPT_DIR}/${required_file}${NC}"
+        echo -e "${YELLOW}请先下载完整仓库代码，再在仓库目录中执行 quick-deploy.sh${NC}"
+        exit 1
+    fi
+done
+echo -e "${GREEN}✓ 本地安装脚本完整${NC}"
 
 # 进入/root目录
 cd /root
@@ -90,11 +104,11 @@ echo -e "${GREEN}✓ 目录创建完成${NC}"
 # 进入shredstream-proxy目录
 cd shredstream-proxy
 
-# 下载防火墙配置脚本
-echo -e "${YELLOW}下载防火墙配置脚本...${NC}"
-wget -q https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/ufw.sh
+# 复制防火墙配置脚本
+echo -e "${YELLOW}复制防火墙配置脚本...${NC}"
+cp "${SCRIPT_DIR}/ufw.sh" ./ufw.sh
 chmod +x ufw.sh
-echo -e "${GREEN}✓ 防火墙脚本下载完成${NC}"
+echo -e "${GREEN}✓ 防火墙脚本复制完成${NC}"
 
 # 执行防火墙配置
 echo -e "${YELLOW}配置防火墙规则...${NC}"
@@ -103,22 +117,22 @@ echo -e "${GREEN}✓ 防火墙配置完成${NC}"
 
 # 下载jito-shredstream-proxy二进制文件
 echo -e "${YELLOW}下载jito-shredstream-proxy二进制文件...${NC}"
-wget -q https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.10/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget -q https://github.com/jito-labs/shredstream-proxy/releases/download/${SHREDSTREAM_PROXY_VERSION}/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
 chmod +x jito-shredstream-proxy
 echo -e "${GREEN}✓ 二进制文件下载完成${NC}"
 
-# 下载启动脚本
-echo -e "${YELLOW}下载${region_name}启动脚本...${NC}"
-wget -q https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/${script_name}
+# 复制启动脚本
+echo -e "${YELLOW}复制${region_name}启动脚本...${NC}"
+cp "${SCRIPT_DIR}/${script_name}" "./${script_name}"
 chmod +x ${script_name}
-echo -e "${GREEN}✓ 启动脚本下载完成${NC}"
+echo -e "${GREEN}✓ 启动脚本复制完成${NC}"
 
-# 下载停止脚本
-echo -e "${YELLOW}下载停止脚本...${NC}"
-wget -q https://github.com/0xfnzero/jito-shredstream-install/releases/download/v1.1/stop.sh
+# 复制停止脚本
+echo -e "${YELLOW}复制停止脚本...${NC}"
+cp "${SCRIPT_DIR}/stop.sh" ./stop.sh
 chmod +x stop.sh
-echo -e "${GREEN}✓ 停止脚本下载完成${NC}"
+echo -e "${GREEN}✓ 停止脚本复制完成${NC}"
 
 echo ""
 echo -e "${GREEN}========================================${NC}"
