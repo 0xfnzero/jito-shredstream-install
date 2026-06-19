@@ -2,6 +2,26 @@
 
 [中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group) | [Discord](https://discord.gg/vuazbGkqQE)
 
+## 这个项目提供什么
+
+本仓库提供 Jito ShredStream proxy 的一键部署和手动部署脚本，适合 Solana validator、RPC 运营者、交易机器人、解析管线和低延迟数据系统接入 ShredStream 交易数据。
+
+| 范围 | 覆盖内容 |
+|------|----------|
+| 部署能力 | `quick-deploy.sh`、防火墙配置、proxy 二进制下载、key 文件复制、启动/停止脚本 |
+| 区域脚本 | New York、Salt Lake City、Dublin、Amsterdam、Frankfurt、London、Singapore、Tokyo |
+| 运行环境 | Linux 服务器、root 部署路径、`/root/shredstream-proxy`、按区域启动脚本 |
+| 使用场景 | Solana 交易 Bot、DEX 解析器、低延迟流处理、validator 和 RPC 基础设施 |
+
+## 脚本索引
+
+| 脚本 | 用途 |
+|------|------|
+| `quick-deploy.sh` | 交互式一键部署入口 |
+| `startup-[region].sh` | 启动所选区域的 ShredStream proxy |
+| `stop.sh` | 停止正在运行的 proxy 进程 |
+| `ufw.sh` | 部署过程中使用的防火墙辅助脚本 |
+
 ## 🚀 快速部署
 
 **推荐安装方式：先在服务器下载完整仓库代码，再执行仓库里的部署脚本。**

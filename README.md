@@ -2,6 +2,26 @@
 
 [中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group) | [Discord](https://discord.gg/vuazbGkqQE)
 
+## What This Project Provides
+
+This repository provides one-click and manual deployment scripts for running the Jito ShredStream proxy on Solana infrastructure. It is intended for validators, RPC operators, trading bots, parser pipelines, and low-latency data systems that need ShredStream transaction data.
+
+| Area | Coverage |
+|------|----------|
+| Deployment | `quick-deploy.sh`, firewall setup, proxy binary download, key copy, startup and stop scripts |
+| Regions | New York, Salt Lake City, Dublin, Amsterdam, Frankfurt, London, Singapore, Tokyo |
+| Runtime | Linux server, root deployment path, `/root/shredstream-proxy`, region-specific startup scripts |
+| Use cases | Solana trading bots, DEX parsers, low-latency stream processors, validator and RPC infrastructure |
+
+## Script Index
+
+| Script | Purpose |
+|--------|---------|
+| `quick-deploy.sh` | Interactive one-click deployment entrypoint |
+| `startup-[region].sh` | Start the ShredStream proxy for the selected region |
+| `stop.sh` | Stop the running proxy process |
+| `ufw.sh` | Firewall helper used during deployment |
+
 ## 🚀 Quick Deployment
 
 **Recommended installation: clone the full repository on the server, then run the deployment script.**
