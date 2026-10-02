@@ -9,7 +9,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-SHREDSTREAM_PROXY_VERSION="${SHREDSTREAM_PROXY_VERSION:-v0.2.13}"
+SHREDSTREAM_PROXY_VERSION="${SHREDSTREAM_PROXY_VERSION:-v0.2.14}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # 区域配置
@@ -28,6 +28,13 @@ declare -A REGIONS=(
 echo -e "${BLUE}========================================${NC}"
 echo -e "${BLUE}    Jito Shredstream 快速部署脚本${NC}"
 echo -e "${BLUE}========================================${NC}"
+echo ""
+
+# 与上游 v0.2.14 的停用公告保持一致。
+echo -e "${YELLOW}注意: Jito ShredStream 已于 2026-09-05 停用。${NC}"
+echo "本脚本仅安装 proxy；旧区域 shredstream 模式已不可用。"
+echo "迁移到 DoubleZero Edge: https://doublezero.xyz/jito-shredstream"
+echo "forward-only 模式需要另行配置有效的 UDP 或 multicast 数据源。"
 echo ""
 
 # 检查是否以root权限运行
@@ -148,7 +155,7 @@ echo -e "${GREEN}    部署完成！${NC}"
 echo -e "${GREEN}========================================${NC}"
 echo ""
 echo -e "${YELLOW}使用方法:${NC}"
-echo -e "  启动服务: ${BLUE}./${script_name}${NC}"
+echo -e "  旧区域脚本（已停用）: ${BLUE}./${script_name}${NC}"
 echo -e "  查看日志: ${BLUE}tail -f shredstream.log${NC}"
 echo -e "  停止服务: ${BLUE}./stop.sh${NC}"
 echo ""
@@ -157,4 +164,4 @@ echo -e "  工作目录: ${BLUE}/root/shredstream-proxy${NC}"
 echo -e "  日志文件: ${BLUE}/root/shredstream-proxy/shredstream.log${NC}"
 echo -e "  PID文件:  ${BLUE}/root/shredstream-proxy/shredstream.pid${NC}"
 echo ""
-echo -e "${GREEN}现在可以运行 ./${script_name} 启动服务${NC}"
+echo -e "${GREEN}proxy 已安装；旧区域服务已停用，请按上游指南迁移到 DoubleZero Edge${NC}"

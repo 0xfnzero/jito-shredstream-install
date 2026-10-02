@@ -2,6 +2,14 @@
 
 [中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group) | [Discord](https://discord.gg/vuazbGkqQE)
 
+## Upstream update: v0.2.14
+
+The installer defaults to [upstream v0.2.14](https://github.com/jito-labs/shredstream-proxy/releases/tag/v0.2.14). This release deprecates Jito ShredStream and disables the `shredstream` command from **September 5, 2026** onward. Regional startup scripts now exit with the migration link before stopping an existing process or clearing its logs.
+
+**The installation instructions below install the proxy only; they no longer provide a working regional Jito ShredStream subscription.** Follow the upstream [DoubleZero Edge migration guide](https://doublezero.xyz/jito-shredstream). The proxy's `forward-only` command remains available for separately configured UDP/multicast sources; installing the proxy does not provision DoubleZero Edge access.
+
+To override the installed release, use `SHREDSTREAM_PROXY_VERSION=v0.2.14 bash quick-deploy.sh`. Installing an older binary does not restore the discontinued upstream service.
+
 ## What This Project Provides
 
 This repository provides one-click and manual deployment scripts for running the Jito ShredStream proxy on Solana infrastructure. It is intended for validators, RPC operators, trading bots, parser pipelines, and low-latency data systems that need ShredStream transaction data.

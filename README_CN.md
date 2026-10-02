@@ -2,6 +2,14 @@
 
 [中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group) | [Discord](https://discord.gg/vuazbGkqQE)
 
+## 上游更新：v0.2.14
+
+安装脚本默认使用[上游 v0.2.14](https://github.com/jito-labs/shredstream-proxy/releases/tag/v0.2.14)。该版本弃用 Jito ShredStream，并从 **2026 年 9 月 5 日**起禁用 `shredstream` 命令。区域启动脚本现在会先输出迁移链接并退出，不会先停止已有进程或清空日志。
+
+**以下部署步骤仅安装 proxy，已无法提供可用的区域 Jito ShredStream 订阅。** 请按上游的 [DoubleZero Edge 迁移指南](https://doublezero.xyz/jito-shredstream)迁移。proxy 的 `forward-only` 命令仍可用于另行配置的 UDP/multicast 数据源；安装 proxy 不会自动开通 DoubleZero Edge 接入。
+
+可通过 `SHREDSTREAM_PROXY_VERSION=v0.2.14 bash quick-deploy.sh` 指定安装版本。安装旧二进制不会恢复已经停用的上游服务。
+
 ## 这个项目提供什么
 
 本仓库提供 Jito ShredStream proxy 的一键部署和手动部署脚本，适合 Solana validator、RPC 运营者、交易机器人、解析管线和低延迟数据系统接入 ShredStream 交易数据。

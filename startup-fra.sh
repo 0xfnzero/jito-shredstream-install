@@ -3,6 +3,14 @@
 set -e
 export RUST_LOG=info
 
+# Upstream v0.2.14 disables shredstream after this UTC timestamp.
+# Check before stopping an existing process or clearing its log.
+if [ "$(date +%s)" -ge 1788566400 ]; then
+    echo "Jito ShredStream shut down on September 5, 2026." >&2
+    echo "Migrate to DoubleZero Edge: https://doublezero.xyz/jito-shredstream" >&2
+    exit 1
+fi
+
 # 配置
 PID_FILE="shredstream.pid"
 LOG_FILE="shredstream.log"

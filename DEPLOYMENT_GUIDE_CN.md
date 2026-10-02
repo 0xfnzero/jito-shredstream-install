@@ -2,6 +2,14 @@
 
 [中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/DEPLOYMENT_GUIDE_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/DEPLOYMENT_GUIDE.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group)
 
+## 上游更新：v0.2.14
+
+安装脚本默认使用[上游 v0.2.14](https://github.com/jito-labs/shredstream-proxy/releases/tag/v0.2.14)。该版本弃用 Jito ShredStream，并从 **2026 年 9 月 5 日**起禁用 `shredstream` 命令。区域启动脚本现在会先输出迁移链接并退出，不会先停止已有进程或清空日志。
+
+**以下部署步骤仅安装 proxy，已无法提供可用的区域 Jito ShredStream 订阅。** 请按上游的 [DoubleZero Edge 迁移指南](https://doublezero.xyz/jito-shredstream)迁移。proxy 的 `forward-only` 命令仍可用于另行配置的 UDP/multicast 数据源；安装 proxy 不会自动开通 DoubleZero Edge 接入。
+
+可通过 `SHREDSTREAM_PROXY_VERSION=v0.2.14 bash quick-deploy.sh` 指定安装版本。安装旧二进制不会恢复已经停用的上游服务。
+
 ## 概述
 
 本指南提供 Jito Shredstream 的详细手动部署步骤，适合希望了解每个部署细节的用户。
@@ -73,7 +81,7 @@ cd shredstream-proxy
 
 ```bash
 # 下载二进制文件
-wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.13/jito-shredstream-proxy-x86_64-unknown-linux-gnu
+wget https://github.com/jito-labs/shredstream-proxy/releases/download/v0.2.14/jito-shredstream-proxy-x86_64-unknown-linux-gnu
 
 # 重命名
 mv jito-shredstream-proxy-x86_64-unknown-linux-gnu jito-shredstream-proxy
@@ -283,9 +291,9 @@ chmod +x jito-shredstream-proxy
 
 ## 版本信息
 
-- **Shredstream Proxy版本**: v0.2.13
+- **Shredstream Proxy版本**: v0.2.14
 - **安装脚本版本**: v1.3
-- **最后更新**: 2024年9月
+- **最后更新**: 2026年10月2日
 
 ---
 
