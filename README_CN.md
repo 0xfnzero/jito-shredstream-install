@@ -1,6 +1,30 @@
-# jito-shredstream-install
+<div align="center">
+    <h1>Jito ShredStream Install</h1>
+    <h3><em>Jito ShredStream 代理部署脚本</em></h3>
+</div>
 
-[中文](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md) | [English](https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md) | [Website](https://fnzero.dev/) | [Telegram](https://t.me/fnzero_group) | [Discord](https://discord.gg/vuazbGkqQE)
+<p align="center">
+    <strong>用于在 Linux 上下载、配置和运行 Jito ShredStream 代理的脚本。部署前请阅读下方的上游停用与迁移说明。</strong>
+</p>
+
+<p align="center">
+    <a href="https://github.com/0xfnzero/jito-shredstream-install"><img src="https://img.shields.io/github/stars/0xfnzero/jito-shredstream-install?style=social" alt="GitHub stars"></a>
+    <a href="https://github.com/0xfnzero/jito-shredstream-install/network"><img src="https://img.shields.io/github/forks/0xfnzero/jito-shredstream-install?style=social" alt="GitHub forks"></a>
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&amp;logo=gnubash&amp;logoColor=white" alt="Bash">
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&amp;logo=linux&amp;logoColor=white" alt="Linux">
+    <img src="https://img.shields.io/badge/Solana-9945FF?style=for-the-badge&amp;logo=solana&amp;logoColor=white" alt="Solana">
+</p>
+
+<p align="center">
+    <a href="https://github.com/0xfnzero/jito-shredstream-install/blob/main/README_CN.md">中文</a> |
+    <a href="https://github.com/0xfnzero/jito-shredstream-install/blob/main/README.md">English</a> |
+    <a href="https://fnzero.dev/">Website</a> |
+    <a href="https://t.me/fnzero_group">Telegram</a> |
+    <a href="https://discord.gg/vuazbGkqQE">Discord</a>
+</p>
 
 ## 上游更新：v0.2.14
 
